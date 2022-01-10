@@ -1,0 +1,18 @@
+Ubuntu
+linux内核编译
+
+1   wget 下载源码
+2   unxz -v 解压.xz文件
+3   tar xvf  解压tar文件
+4   cd 
+	cp -v /boot/config-$(uname -r) .config
+5 	sudo apt-get update
+	sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev -y
+6	make menuconfig 
+	make
+	make -j $(nproc)
+7   sudo make modules_install
+	sudo make install
+	sudo updaet initramfs -c -k 5.13.14
+	sudo update-grub
+	
