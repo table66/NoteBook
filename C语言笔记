@@ -1,1 +1,137 @@
+enum 枚举名 {枚举元素1，枚举元素2,};
+example 
+枚举 类型定义enum day {day1,day2,day4,day5};enum day {day1,day2,day4,day5};
+枚举变量定义
+enum day {day1,day2,day4,day5};
+enum day d1;
+enum day {day1,day2,day4,day5} d1;
 
+省略枚举类型
+enum  {day1,day2,day4,day5} d1;
+1	enum day dd;
+2	enum 
+结构体
+定义结构
+truct Books
+{
+	char title[50];
+	char author[50];
+	char subject[50];
+	int bookid;
+} book;
+结构体变量
+struct Books book1;
+结构体指针
+struct Books *p;
+p = &book1;
+访问
+p->title;
+
+共用体声明
+uion Data 
+{
+	int i;
+	float f;
+	char str [20];
+} ;
+共用体变量
+union Data data;
+共用体成员访问用 .
+
+位域或位宽
+struct 位域结构名
+{
+	位域列表
+	type [nunmber_name] : width;
+}
+struct 
+{
+	unsigned int age : 3;
+} Age;
+
+输入与输出
+getchar()  返回一个整数 ASCII码
+putchar()   返回相同字符
+
+gets() 
+char str[100];
+gets(str);
+puts(str);
+
+printf();
+scanf();
+
+文件读写
+fopen函数 文件指针
+r w a 
+FILE *fopen( const char *filename , const char * mode);
+关闭文件 
+int fclose(FILE *fp);  写入错误返回EOF
+
+定义一个文件指针
+FILE *fp = NULL;
+fp = fopen("D:/","a");
+
+写入文件
+int fputc( int c , FILE * fp);
+int fputs( const char *s, FILE *fp);
+读取文件
+int fgetc( FILE *fp);
+char *fgets(char *buf,int n , FILE *fp );
+错误EOF
+
+预处理
+#define 
+#include
+#undef
+#ifdef
+#ifndef
+#if
+#else
+#eilf
+#endif
+#error
+#pragma
+
+#undef file-size
+#def file-size
+
+#ifndef messaeg
+#define message
+#endif
+
+错误处理、
+errno 
+perror(); 显示传给他的字符串，后跟以一个冒号，一个空格，和当前errno值的文本
+perror("error is ");
+strerror(); 返回一个指针，指向errno的文本形式
+
+可变参数
+#include <stdarg.h>
+double average(int num,...){
+	va_list valist;  //定义一个va_list 变量
+	double sum =0 ;
+	int i;
+	va_start(valist,num); //用int，va_start初始化va_list变量
+	for(i=0;i<num;i++)
+		sum+=va_arg(valist,int); /、使用va_arg va_list变量日访问参数项
+	va_end(valist) ;   //使用var_end清理变量内存
+	return sum/num;
+}
+
+内存管理
+void *calloc(int num , int size );
+void * 未确定类型的指针 
+内存分配num个长度为size的连续空间，字节初始化为0
+void free(void *address);
+释放内存
+void *malloc(int num);
+堆分区分配内存空间，不会初始化
+void *realloc( void *address, int newsize);
+重新分配内存，扩展到newsize
+
+命令行参数
+int main(int argc, char *argv[] )
+{}
+argc 传入参数的个数
+argv[]一个指针数组，指向每个参数
